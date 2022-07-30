@@ -1,0 +1,119 @@
+##
+## List of files to be ignored by Git
+##
+## See: http://help.github.com/ignore-files/ for more information.
+##
+
+*
+
+!.gitignore
+!.gitmodules
+
+# Config
+!.config
+
+#
+# ZSH
+#
+
+!.zprofile
+!.zshenv
+!.zshrc
+!.config/zsh
+
+# Plugins directory
+!.config/zsh/plugins
+!.config/zsh/plugins/**/*
+
+#
+# Powerlevel10k
+#
+
+!.p10k.zsh
+
+#
+# X11
+#
+
+!.config/X11
+!.config/X11/xinit
+!.config/X11/xinit/xinitrc
+!.config/X11/xinit/xinitrc.d
+!.config/X11/xinit/xinitrc.d/**/*
+!.config/X11/xinit/xresources.d
+!.config/X11/xinit/xresources.d/**/*
+!.config/X11/xinit/xserverrc
+
+#
+# BSPWM
+#
+
+!.config/bspwm
+!.config/bspwm/bspwmrc
+!.config/bspwm/bspwmrc.d
+!.config/bspwm/bspwmrc.d/**/*
+
+#
+# (S)uper (X) (h)ot(k)ey (d)aemon
+
+!.config/sxhkd
+!.config/sxhkd/sxhkdrc
+
+#
+# btop
+# 
+!.config/btop
+!.config/btop/btop.conf
+
+#
+# Kitty
+#
+
+!.config/kitty
+!.config/kitty/diff.conf
+!.config/kitty/kitty.conf
+!.config/kitty/assets
+!.config/kitty/kitty.d
+!.config/kitty/kitty.d/**/*
+
+#
+# Polybar
+#
+
+!.config/polybar
+!.config/polybar/config.ini
+!.config/polybar/config.d
+!.config/polybar/config.d/**/*
+
+#
+# Picom
+#
+
+!.config/picom
+!.config/picom/picom.conf
+
+#
+# GTK
+#
+!.config/gtk-3.0
+!.config/gtk-3.0/settings.ini
+!.config/gtk-4.0
+!.config/gtk-4.0/settings.ini
+
+#
+# Trolltech
+#
+!.config/Trolltech.conf
+
+#
+# Redshift
+#
+!.config/redshift
+!.config/redshift/redshift.conf
+
+#
+# TEST
+#
+
+!.wallpapers
+!.wallpapers/**/*
