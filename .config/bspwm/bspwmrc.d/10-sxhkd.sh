@@ -4,10 +4,10 @@
 # (S)uper (X) (h)ot(k)ey (d)aemon startup
 #
 
-if pgrep -x sxhkd >/dev/null; then
-    killall sxhkd >/dev/null
+if /usr/bin/pgrep -x sxhkd >/dev/null; then
+    /usr/bin/killall sxhkd >/dev/null
 
-    while pgrep -x sxhkd >/dev/null; do sleep 1; done
+    while /usr/bin/pgrep -x sxhkd >/dev/null; do /usr/bin/sleep 1; done
 fi
 
-sxhkd & disown
+/usr/bin/sxhkd & disown

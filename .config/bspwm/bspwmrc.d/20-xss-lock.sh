@@ -4,10 +4,10 @@
 # xss-lock startup
 #
 
-if pgrep -x xss-lock >/dev/null; then
-    killall xss-lock >/dev/null
+if /usr/bin/pgrep -x xss-lock >/dev/null; then
+    /usr/bin/killall xss-lock >/dev/null
 
-    while pgrep -x xss-lock >/dev/null; do sleep 1; done
+    while /usr/bin/pgrep -x xss-lock >/dev/null; do /usr/bin/sleep 1; done
 fi
 
-xss-lock slock & disown
+/usr/bin/xss-lock slock & disown

@@ -4,10 +4,10 @@
 # dunst startup
 #
 
-if pgrep -x dunst >/dev/null; then
-    killall dunst >/dev/null
+if /usr/bin/pgrep -x dunst >/dev/null; then
+    /usr/bin/killall dunst >/dev/null
 
-    while pgrep -x dunst >/dev/null; do sleep 1; done
+    while /usr/bin/pgrep -x dunst >/dev/null; do /usr/bin/sleep 1; done
 fi
 
-dunst & disown
+/usr/bin/dunst & disown

@@ -7,6 +7,6 @@
 _WALLPAPER="$HOME/.wallpapers/michael-benz-IgWNxx7paz4-unsplash.jpg"
 
 if [ -f "$_WALLPAPER" ]; then
-    feh --bg-fill "$_WALLPAPER"
+    /usr/bin/feh --bg-fill "$_WALLPAPER"
 fi
 
