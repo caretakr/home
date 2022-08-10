@@ -35,14 +35,15 @@
 # X11
 #
 
+!.xinitrc
+!.xserverrc
+
 !.config/X11
 !.config/X11/xinit
-!.config/X11/xinit/xinitrc
 !.config/X11/xinit/xinitrc.d
 !.config/X11/xinit/xinitrc.d/**/*
 !.config/X11/xinit/xresources.d
 !.config/X11/xinit/xresources.d/**/*
-!.config/X11/xinit/xserverrc
 
 #
 # BSPWM

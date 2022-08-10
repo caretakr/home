@@ -4,10 +4,10 @@
 # redshift startup
 #
 
-if pgrep -x redshift >/dev/null; then
-    killall redshift >/dev/null
+if /usr/bin/pgrep -x redshift >/dev/null; then
+    /usr/bin/killall redshift >/dev/null
 
-    while pgrep -x redshift >/dev/null; do sleep 1; done
+    while /usr/bin/pgrep -x redshift >/dev/null; do /usr/bin/sleep 1; done
 fi
 
-redshift & disown
+/usr/bin/redshift & disown

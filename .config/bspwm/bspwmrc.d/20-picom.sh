@@ -4,10 +4,10 @@
 # picom startup
 #
 
-if pgrep -x picom >/dev/null; then
-    killall picom >/dev/null
+if /usr/bin/pgrep -x picom >/dev/null; then
+    /usr/bin/killall picom >/dev/null
 
-    while pgrep -x picom >/dev/null; do sleep 1; done
+    while /usr/bin/pgrep -x picom >/dev/null; do /usr/bin/sleep 1; done
 fi
 
-picom -f & disown
+/usr/bin/picom -f & disown
