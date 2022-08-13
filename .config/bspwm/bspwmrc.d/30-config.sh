@@ -23,7 +23,7 @@ fi
 /usr/bin/bspc config gapless_monocle true
 
 # Set node settings
-/usr/bin/bspc config border_width 4 
+/usr/bin/bspc config border_width 2
 /usr/bin/bspc config normal_border_color "$(xrdb -get "*.background")"
 /usr/bin/bspc config active_border_color "$(xrdb -get "*.background")"
 /usr/bin/bspc config focused_border_color "$(xrdb -get "*.color4")"
