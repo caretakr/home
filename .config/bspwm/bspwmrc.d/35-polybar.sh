@@ -22,6 +22,10 @@ _XRESOURCES_DPI="$(/usr/bin/xrdb -query | /usr/bin/grep "Xft.dpi" | /usr/bin/cut
 _XRESOURCES_DPI="${_XRESOURCES_DPI:-96}"
 
 for m in $(/usr/bin/xrandr --query | /usr/bin/grep " connected" | /usr/bin/cut -d" " -f1); do
+    if ! /usr/bin/xrandr --query | /usr/bin/grep "^$m" | /usr/bin/grep " connected" | grep "[0-9]x[0-9]\+[0-9]\+[0-9]" >/dev/null; then
+        continue
+    fi
+
     _VIEWPORT_WIDTH="$(/usr/bin/xrandr --query | /usr/bin/grep "^$m" | /usr/bin/sed 's/ primary//g' | /usr/bin/cut -d" " -f3 | /usr/bin/cut -d"x" -f1)"
 
     _PADDING="24"
