@@ -46,10 +46,6 @@ EOF
     sudo sh -c 'cat <<EOF > /etc/udev/rules.d/20-input.rules
 ACTION=="bind", SUBSYSTEM=="hid", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/caretakr/.Xauthority", RUN+="/usr/bin/su caretakr -c /home/caretakr/.config/X11/xinit/xinitrc.d/20-input.sh"
 EOF'
-
-    _log "Setting services..."
-
-    systemctl --user enable podman.service
 }
 
 _main "$@"
