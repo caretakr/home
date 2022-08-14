@@ -39,7 +39,6 @@ EOF
 
     _AUR_PACKAGES=" \
         nerd-fonts-complete \
-        plymouth-git \
         xbanish \
     "
 
