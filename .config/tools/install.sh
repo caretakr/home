@@ -28,13 +28,6 @@ EOF
     chown caretakr:caretakr /home/caretakr/.ssh/authorized_keys
     chmod 0600 /home/caretakr/.ssh/authorized_keys
 
-    _log "Setting Paru..."
-
-    git clone https://aur.archlinux.org/paru.git /var/tmp/paru
-
-    sh -c \
-        "(cd /var/tmp/paru && makepkg -si --noconfirm && cd / && rm -rf /var/tmp/paru)"
-
     _log "Setting AUR packages..."
 
     _AUR_PACKAGES=" \
