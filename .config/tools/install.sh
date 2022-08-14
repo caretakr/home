@@ -40,7 +40,6 @@ EOF
     _AUR_PACKAGES=" \
         nerd-fonts-complete \
         plymouth-git \
-        x11docker \
         xbanish \
     "
 
