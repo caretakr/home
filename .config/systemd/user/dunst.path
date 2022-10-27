@@ -1,0 +1,9 @@
+[Unit]
+Description=watch for Dunst config
+
+[Path]
+PathChanged=%E/dunst/dunstrc
+Unit=watcher@dunst.service
+
+[Install]
+WantedBy=default.target

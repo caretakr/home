@@ -1,12 +1,10 @@
-#!/bin/sh
-
 #
 # X server startup
 #
 
 # Create log directory if not exists
 if [[ ! -d "$XDG_DATA_HOME/xorg" ]]; then
-    /usr/bin/mkdir -p "$XDG_DATA_HOME/xorg"
+  /usr/bin/mkdir -p "$XDG_DATA_HOME/xorg"
 fi
 
 exec /usr/bin/Xorg -nolisten tcp -nolisten local "$@" "vt$XDG_VTNR" \

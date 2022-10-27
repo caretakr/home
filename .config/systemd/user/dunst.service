@@ -1,0 +1,16 @@
+[Unit]
+Description=Dunst notification daemon
+Documentation=man:dunst(1)
+PartOf=dunst.path
+PartOf=graphical-session.target
+
+[Service]
+Type=dbus
+BusName=org.freedesktop.Notifications
+ExecStart=/usr/bin/dunst
+ExecStartPost=notify-send -u normal 'Service started' 'The dunst service was started'
+ExecReload=/usr/bin/kill -SIGUSR1 $MAINPID
+Restart=always
+
+[Install]
+WantedBy=xsession.target

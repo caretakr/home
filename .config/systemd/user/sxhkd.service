@@ -1,0 +1,16 @@
+[Unit]
+Description=simple X hotkey daemon
+Documentation=man:sxhkd(1)
+PartOf=sxhkd.target
+OnFailure=notify-failure@%N.service
+
+[Service]
+ExecStart=/usr/bin/sxhkd
+ExecStartPost=notify-send -u normal 'Service started' 'The sxhkd service was started'
+ExecReload=/usr/bin/kill -SIGUSR1 $MAINPID
+ExecStopPost=notify-send -u normal 'Service stopped' 'The sxhkd service was stopped'
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=xsession.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=hides cursor when starting typing
+Documentation=man:xbanish(1)
+PartOf=graphical-session.target
+OnFailure=notify-failure@%N.service
+
+[Service]
+ExecStart=/usr/bin/xbanish
+ExecStartPost=notify-send -u normal 'Service started' 'The xbanish service was started'
+ExecReload=/usr/bin/kill -SIGUSR1 $MAINPID
+ExecStopPost=notify-send -u normal 'Service stopped' 'The xbanish service was stopped'
+Restart=always
+
+[Install]
+WantedBy=xsession.target

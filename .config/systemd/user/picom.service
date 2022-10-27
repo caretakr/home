@@ -1,0 +1,16 @@
+[Unit]
+Description=Picom compositor fork
+Documentation=man:picom(1)
+PartOf=picom.path
+PartOf=graphical-session.target
+OnFailure=notify-failure@%N.service
+
+[Service]
+ExecStart=/usr/bin/picom
+ExecStartPost=notify-send -u normal 'Service started' 'The picom service was started'
+ExecReload=/usr/bin/kill -SIGUSR1 $MAINPID
+ExecStopPost=notify-send -u normal 'Service stopped' 'The picom service was stopped'
+Restart=always
+
+[Install]
+WantedBy=xsession.target

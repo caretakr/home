@@ -1,0 +1,15 @@
+[Unit]
+Description=Polkit authentication agent
+Documentation=man:polkit(1)
+PartOf=graphical-session.target
+OnFailure=notify-failure@%N.service
+
+[Service]
+ExecStart=/usr/lib/mate-polkit/polkit-mate-authentication-agent-1
+ExecStartPost=notify-send -u normal 'Service started' 'The polkit service was started'
+ExecReload=/usr/bin/kill -SIGUSR1 $MAINPID
+ExecStopPost=notify-send -u normal 'Service stopped' 'The polkit service was stopped'
+Restart=always
+
+[Install]
+WantedBy=xsession.target

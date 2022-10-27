@@ -1,0 +1,10 @@
+[Unit]
+Description=watch for fehbg config
+
+[Path]
+PathChanged=%E/fehbg/fehbgrc
+PathChanged=%h/.wallpaper
+Unit=watcher@fehbg.service
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=watcher reloader
+OnFailure=notify-failure@%N.service
+
+[Service]
+ExecStart=/usr/bin/systemctl --user restart %i
+
+[Install]
+WantedBy=default.target

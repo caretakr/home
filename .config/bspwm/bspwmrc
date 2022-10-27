@@ -7,9 +7,9 @@
 _BSPWMRC_DIRECTORY="$XDG_CONFIG_HOME/bspwm/bspwmrc.d"
 
 if [ -d "$_BSPWMRC_DIRECTORY" ] ; then
-    for f in "$_BSPWMRC_DIRECTORY"/?*.sh ; do
-        [ -x "$f" ] && . "$f"
-    done
+  for f in "$_BSPWMRC_DIRECTORY"/?*.sh ; do
+    [ -x "$f" ] && . "$f"
+  done
 
-    unset f
+  unset f
 fi

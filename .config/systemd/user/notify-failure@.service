@@ -1,0 +1,9 @@
+[Unit]
+Description=Notify about failure
+
+[Service]
+Type=oneshot
+ExecStart=notify-send -u critical 'Service failed' 'The %i service was failed'
+
+[Install]
+WantedBy=default.target

@@ -8,8 +8,8 @@ _INPUT_NAME="bcm5974"
 _INPUT_ID="$(/usr/bin/xinput list --id-only "pointer:$_INPUT_NAME" 2>/dev/null)"
 
 if [ ! -z "$_INPUT_ID" ]; then
-    # Set tapping, dragging and natural scrolling
-    /usr/bin/xinput --set-prop "$_INPUT_ID" "libinput Tapping Enabled" 1
-    /usr/bin/xinput --set-prop "$_INPUT_ID" "libinput Tapping Drag Enabled" 0
-    /usr/bin/xinput --set-prop "$_INPUT_ID" "libinput Natural Scrolling Enabled" 1
+  # Set tapping, dragging and natural scrolling
+  /usr/bin/xinput --set-prop "$_INPUT_ID" "libinput Tapping Enabled" 1
+  /usr/bin/xinput --set-prop "$_INPUT_ID" "libinput Tapping Drag Enabled" 0
+  /usr/bin/xinput --set-prop "$_INPUT_ID" "libinput Natural Scrolling Enabled" 1
 fi
