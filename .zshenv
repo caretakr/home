@@ -36,10 +36,10 @@ export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/compdump"
 # Defaults
 #
 
-export EDITOR="vim"
+export EDITOR="nvim"
 export PAGER="less"
 export TERMINAL="kitty"
-export VISUAL="vim"
+export VISUAL="nvim"
 
 # Ensure that a non-login, non-interactive shell has a environment
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s ".zprofile" ]]; then
