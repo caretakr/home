@@ -161,6 +161,13 @@ _main() {
     paru -S --noconfirm --ask=4 $PACMAN_PACKAGES
   )
 
+  _step 'Setting virtualization...' \
+    && _line
+
+  (
+    sudo systemctl enable libvirtd.service
+  )
+
   _step 'Setting containers...' \
     && _line
 
@@ -172,24 +179,10 @@ _main() {
     sudo touch /etc/containers/nodocker
   )
 
-  _step 'Setting Plymouth...' \
+  _step 'Setting desktop...' \
     && _line
 
   (
-    sudo sed -i \
-        '/^HOOKS/s/(.*)/(base systemd sd-plymouth autodetect keyboard sd-vconsole modconf block sd-encrypt filesystems fsck)/g' \
-        /etc/mkinitcpio.conf
-
-    sudo mkinitcpio -P
-  )
-
-  _step 'Setting services...' \
-    && _line
-
-  (
-    sudo systemctl enable firewalld.service
-    sudo systemctl enable libvirtd.service
-
     systemctl --user enable dunst.service \
       && systemctl --user enable dunst.path
 
@@ -214,13 +207,42 @@ _main() {
     systemctl --user enable xss-lock@slock.service
   )
 
-  _step 'Setting udev rules...' \
+  _step 'Setting udev...' \
     && _line
 
   (
     sudo sh -c 'cat <<EOF >/etc/udev/rules.d/20-input.rules
 ACTION=="bind", SUBSYSTEM=="hid", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/caretakr/.Xauthority", RUN+="/usr/bin/su caretakr -c /home/caretakr/.config/X11/xinit/xinitrc.d/20-input.sh"
 EOF'
+  )
+
+  _step 'Setting SSH...' \
+    && _line
+
+  (
+    sudo sed -i \
+        's/^#PasswordAuthentication yes$/PasswordAuthentication no/g' \
+        /etc/ssh/sshd_config
+
+    sudo systemctl enable sshd
+  )
+
+  _step 'Setting firewall...' \
+    && _line
+
+  (
+    sudo systemctl enable firewalld.service
+  )
+
+  _step 'Setting Plymouth...' \
+    && _line
+
+  (
+    sudo sed -i \
+        '/^HOOKS/s/(.*)/(base systemd sd-plymouth autodetect keyboard sd-vconsole modconf block sd-encrypt filesystems fsck)/g' \
+        /etc/mkinitcpio.conf
+
+    sudo mkinitcpio -P
   )
 }
 
