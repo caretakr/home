@@ -87,6 +87,7 @@ _main() {
       feh \
       firefox \
       firefox-developer-edition \
+      firewalld \
       flatpak \
       fuse-overlayfs \
       gnome-keyring \
@@ -142,7 +143,6 @@ _main() {
       telegram-desktop \
       trash-cli \
       tmux \
-      ufw \
       unzip \
       virt-manager \
       visual-studio-code-bin \
@@ -159,13 +159,6 @@ _main() {
     "
 
     paru -S --noconfirm --ask=4 $PACMAN_PACKAGES
-  )
-
-  _step 'Setting virtualization...' \
-    && _line
-
-  (
-    systemctl enable libvirtd.service
   )
 
   _step 'Setting containers...' \
@@ -208,6 +201,9 @@ EOF
     && _line
 
   (
+    sudo systemctl enable firewalld.service
+    sudo systemctl enable libvirtd.service
+
     systemctl --user enable dunst.service \
       && systemctl --user enable dunst.path
 
