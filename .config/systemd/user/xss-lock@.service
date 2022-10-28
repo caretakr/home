@@ -1,0 +1,15 @@
+[Unit]
+Description=lock screen with %i
+Documentation=man:xss-lock(1)
+PartOf=graphical-session.target
+OnFailure=notify-failure@%N.service
+
+[Service]
+ExecStart=/usr/bin/xss-lock %i
+ExecStartPost=notify-send -u normal 'Service started' 'The xss-lock service was started'
+ExecReload=/usr/bin/kill -SIGUSR1 $MAINPID
+ExecStopPost=notify-send -u normal 'Service stopped' 'The xss-lock service was stopped'
+Restart=always
+
+[Install]
+WantedBy=xsession.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=Polybar bars and modules
+Documentation=man:polybar(1)
+PartOf=polybar.path
+PartOf=graphical-session.target
+OnFailure=notify-failure@%N.service
+
+[Service]
+ExecStart=%E/polybar/polybarrc
+ExecStartPost=notify-send -u normal 'Service started' 'The polybar service was started'
+ExecReload=/usr/bin/kill -SIGUSR1 $MAINPID
+ExecStopPost=notify-send -u normal 'Service stopped' 'The polybar service was stopped'
+Restart=always
+
+[Install]
+WantedBy=xsession.target

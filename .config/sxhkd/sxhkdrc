@@ -129,15 +129,15 @@ super + ctrl + shift + space
 
 # Expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+	bspc node -z {left -8 0,bottom 0 8,top 0 -8,right 8 0}
 
 # Contract a window by moving one of its side inward
 super + alt + shift + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+	bspc node -z {right -8 0,top 0 8,bottom 0 -8,left 8 0}
 
 # Move a floating window
 super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
+	bspc node -v {-8 0,0 8,0 -8,8 0}
 
 
 #
@@ -146,10 +146,10 @@ super + {Left,Down,Up,Right}
 
 
 XF86AudioRaiseVolume
-    pamixer --increase 5 --set-limit 100 
+    pamixer --increase 5 --set-limit 100
 
 XF86AudioLowerVolume
-    pamixer --decrease 5 
+    pamixer --decrease 5
 
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle

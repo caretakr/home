@@ -43,5 +43,5 @@ export VISUAL="vim"
 
 # Ensure that a non-login, non-interactive shell has a environment
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s ".zprofile" ]]; then
-    source ".zprofile"
+  source ".zprofile"
 fi

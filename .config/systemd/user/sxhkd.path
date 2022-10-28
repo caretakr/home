@@ -1,0 +1,9 @@
+[Unit]
+Description=watch for sxhkd config
+
+[Path]
+PathChanged=%E/sxhkd/sxhkdrc
+Unit=watcher@sxhkd.service
+
+[Install]
+WantedBy=default.target

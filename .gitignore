@@ -6,18 +6,27 @@
 
 *
 
+!.editorconfig
 !.gitignore
 !.gitmodules
 
-# Config
 !.config
 
 #
 # Tools
 #
 
-!.config/tools
-!.config/tools/install.sh
+!.tools
+!.tools/install.sh
+
+#
+# Scripts
+#
+
+!.scripts
+!.scripts/mount.sh
+!.scripts/mullvad-install.sh
+!.scripts/mullvad-switch.sh
 
 #
 # ZSH
@@ -26,11 +35,12 @@
 !.zprofile
 !.zshenv
 !.zshrc
-!.config/zsh
 
-# Plugins directory
-!.config/zsh/plugins
-!.config/zsh/plugins/**/*
+!.zsh
+!.zsh/plugins
+!.zsh/plugins/**/*
+!.zsh/themes
+!.zsh/themes/**/*
 
 #
 # Powerlevel10k
@@ -60,18 +70,13 @@
 !.config/bspwm/bspwmrc
 !.config/bspwm/bspwmrc.d
 !.config/bspwm/bspwmrc.d/**/*
+!.config/bspwm/rules.sh
 
 #
-# (S)uper (X) (h)ot(k)ey (d)aemon
+# sxhkd
 
 !.config/sxhkd
 !.config/sxhkd/sxhkdrc
-
-#
-# btop
-# 
-!.config/btop
-!.config/btop/btop.conf
 
 #
 # Kitty
@@ -92,6 +97,7 @@
 !.config/polybar/config.ini
 !.config/polybar/config.d
 !.config/polybar/config.d/**/*
+!.config/polybar/polybarrc
 
 #
 # Picom
@@ -103,6 +109,7 @@
 #
 # GTK
 #
+
 !.config/gtk-3.0
 !.config/gtk-3.0/settings.ini
 !.config/gtk-4.0
@@ -111,17 +118,50 @@
 #
 # Trolltech
 #
+
 !.config/Trolltech.conf
 
 #
 # Redshift
 #
+
 !.config/redshift
 !.config/redshift/redshift.conf
 
 #
-# TEST
+# Rofi
 #
 
+!.config/rofi
+!.config/rofi/scripts
+!.config/rofi/scripts/power.sh
+
+#
+# Wallpaper
+#
+
+!.config/fehbg
+!.config/fehbg/fehbgrc
+
+!.wallpaper
 !.wallpapers
 !.wallpapers/**/*
+
+#
+# Systemd
+#
+
+!.config/systemd
+!.config/systemd/user
+!.config/systemd/user/**/*.path
+!.config/systemd/user/**/*.path.d
+!.config/systemd/user/**/*.path.d/override.conf
+!.config/systemd/user/**/*.service
+!.config/systemd/user/**/*.service.d
+!.config/systemd/user/**/*.service.d/override.conf
+!.config/systemd/user/**/*.socket
+!.config/systemd/user/**/*.socket.d
+!.config/systemd/user/**/*.socket.d/override.conf
+!.config/systemd/user/**/*.target
+!.config/systemd/user/**/*.target.d
+!.config/systemd/user/**/*.target.d/override.conf

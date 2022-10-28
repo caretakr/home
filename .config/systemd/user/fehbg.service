@@ -1,0 +1,14 @@
+[Unit]
+Description=feh background
+Documentation=man:feh(1)
+PartOf=fehbg.path
+PartOf=graphical-session.target
+OnFailure=notify-failure@%N.service
+
+[Service]
+Type=oneshot
+ExecStart=%E/fehbg/fehbgrc
+ExecStartPost=notify-send -u normal 'Service started' 'The fehbg service was started'
+
+[Install]
+WantedBy=xsession.target

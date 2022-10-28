@@ -1,0 +1,9 @@
+[Unit]
+Description=watch for Picom config
+
+[Path]
+PathChanged=%E/picom/picom.conf
+Unit=watcher@picom.service
+
+[Install]
+WantedBy=default.target
