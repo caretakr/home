@@ -172,20 +172,6 @@ _main() {
     sudo touch /etc/containers/nodocker
   )
 
-  _step 'Setting SSH...' \
-    && _line
-
-  (
-    mkdir -p /home/caretakr/.ssh
-
-    cat <<EOF > /home/caretakr/.ssh/authorized_keys
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEG40ygu8lYHrXJrbBE0m+vHHhT2VCxlBaEmXvyC6MF (none)
-EOF
-
-    chmod 700 /home/caretakr/.ssh \
-      && chmod 600 /home/caretakr/.ssh/authorized_keys
-  )
-
   _step 'Setting Plymouth...' \
     && _line
 
