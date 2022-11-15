@@ -61,7 +61,8 @@ _main() {
   (
     WORKING_DIRECTORY="$(mktemp -d)"
 
-    git clone https://aur.archlinux.org/paru.git "$WORKING_DIRECTORY" \
+    sudo sed -i 's/^#Color$/Color/g' /etc/pacman.conf \
+      && git clone https://aur.archlinux.org/paru.git "$WORKING_DIRECTORY" \
       && cd "$WORKING_DIRECTORY" \
       && makepkg -si --noconfirm
   )
