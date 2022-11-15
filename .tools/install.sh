@@ -177,6 +177,8 @@ _main() {
           caretakr
 
     sudo touch /etc/containers/nodocker
+
+    systemctl --user enable podman.service
   )
 
   _step 'Setting desktop...' \
