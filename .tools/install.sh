@@ -62,6 +62,7 @@ _main() {
     WORKING_DIRECTORY="$(mktemp -d)"
 
     sudo sed -i 's/^#Color$/Color/g' /etc/pacman.conf \
+      && sudo pacman -S --needed --noconfirm --ask=4 base-devel \
       && git clone https://aur.archlinux.org/paru.git "$WORKING_DIRECTORY" \
       && cd "$WORKING_DIRECTORY" \
       && makepkg -si --noconfirm
