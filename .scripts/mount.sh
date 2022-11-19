@@ -4,7 +4,7 @@
 # Mount disks
 #
 
-_EXPANSION_UUID="6fd3545e-78c3-44b3-8710-d88fe33aa573"
+_EXPANSION_UUID="70f65a9f-da6a-4c3a-9170-b217645dbf35"
 _EXPANSION_PASSPHRASE="$(secret-tool lookup device "disk" uuid "$_EXPANSION_UUID")"
 
 _STORAGE_UUID="49ec3386-7443-49e7-8ff1-3005755ad45d"
@@ -31,7 +31,8 @@ pkexec <<EOF sh
             fi
 
             if ! mountpoint -q $_CARETAKR_PATH; then
-                mount -o noatime,compress=zstd,subvol=home/caretakr+live \
+                mount \
+                    -o rw,noatime,compress=zstd:3,ssd,space_cache=v2,subvol=home/caretakr+live \
                     /dev/mapper/$_EXPANSION_UUID $_CARETAKR_PATH
             fi
         fi
@@ -52,7 +53,8 @@ pkexec <<EOF sh
             fi
 
             if ! mountpoint -q $_STORAGE_PATH; then
-                mount -o noatime,compress=zstd,subvol=base+live \
+                mount \
+                    -o rw,noatime,compress=zstd:3,space_cache=v2,subvol=base+live \
                     /dev/mapper/$_STORAGE_UUID $_STORAGE_PATH
             fi
         fi
@@ -63,7 +65,8 @@ pkexec <<EOF sh
             fi
 
             if ! mountpoint -q $_SECRET_PATH; then
-                mount -o noatime,compress=zstd,subvol=secret+live \
+                mount \
+                    -o rw,noatime,compress=zstd:3,space_cache=v2,subvol=secret+live \
                     /dev/mapper/$_STORAGE_UUID $_SECRET_PATH
             fi
         fi
@@ -74,7 +77,8 @@ pkexec <<EOF sh
             fi
 
             if ! mountpoint -q $_BACKUP_PATH; then
-                mount -o noatime,compress=zstd,subvol=backup+live \
+                mount \
+                    -o rw,noatime,compress=zstd:3,space_cache=v2,subvol=backup+live \
                     /dev/mapper/$_STORAGE_UUID $_BACKUP_PATH
             fi
         fi
