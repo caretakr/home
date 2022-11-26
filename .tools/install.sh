@@ -152,24 +152,6 @@ _main() {
     paru -S --noconfirm --ask=4 $_PACKAGES
   )
 
-  _step 'Setting Node.js...' \
-    && _line
-
-  (
-    source /usr/share/nvm/init-nvm.sh \
-      && nvm install --lts \
-      && nvm use --lts \
-      && node -v
-  )
-
-  _step 'Setting Rust...' \
-    && _line
-
-  (
-    rustup default stable \
-      && rustc -V
-  )
-
   _step 'Setting virtualization...' \
     && _line
 
