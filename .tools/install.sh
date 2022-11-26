@@ -156,7 +156,8 @@ _main() {
     && _line
 
   (
-    nvm install --lts \
+    source /usr/share/nvm/init-nvm.sh \
+      && nvm install --lts \
       && nvm use --lts \
       && node -v
   )
