@@ -59,12 +59,12 @@ _main() {
     && _line
 
   (
-    WORKING_DIRECTORY="$(mktemp -d)"
+    _WORKING_DIRECTORY="$(mktemp -d)"
 
     sudo sed -i 's/^#Color$/Color/g' /etc/pacman.conf \
       && sudo pacman -S --needed --noconfirm --ask=4 base-devel \
-      && git clone https://aur.archlinux.org/paru.git "$WORKING_DIRECTORY" \
-      && cd "$WORKING_DIRECTORY" \
+      && git clone https://aur.archlinux.org/paru.git "$_WORKING_DIRECTORY" \
+      && cd "$_WORKING_DIRECTORY" \
       && makepkg -si --noconfirm
   )
 
@@ -72,16 +72,13 @@ _main() {
     && _line
 
   (
-    PACMAN_PACKAGES=" \
-      7-zip \
+    _PACKAGES=" \
       adwaita-qt5 \
       adwaita-qt6 \
       android-studio \
-      base-devel \
       bridge-utils \
       bspwm \
       btop \
-      clang \
       dmidecode \
       dnsmasq \
       dunst \
@@ -97,22 +94,17 @@ _main() {
       google-chrome \
       gtk3 \
       gtk4 \
-      helm \
       iptables-nft \
-      jq \
       kitty \
-      kubectl \
       libfido2 \
       libnotify \
       libsecret \
       libvirt \
       mate-polkit \
-      minikube \
       mpv \
       neovim \
       nerd-fonts-complete \
       netavark \
-      ninja \
       noto-fonts \
       noto-fonts-cjk \
       noto-fonts-emoji \
@@ -132,27 +124,24 @@ _main() {
       qemu-base \
       qt5-base \
       qt6-base \
-      rar \
       redshift \
       rofi \
       rsync \
+      rustup \
       seahorse \
-      skaffold \
       slirp4netns \
       slock \
       swtpm \
       sxhkd \
       telegram-desktop \
       trash-cli \
-      tmux \
-      unzip \
+      unarchiver \
       virt-manager \
       visual-studio-code-bin \
       wireguard-tools \
       xbanish \
       xdg-desktop-portal-gtk \
       xorg-server \
-      xorg-xev \
       xorg-xinit \
       xorg-xinput \
       xorg-xrandr \
@@ -160,7 +149,24 @@ _main() {
       xss-lock \
     "
 
-    paru -S --noconfirm --ask=4 $PACMAN_PACKAGES
+    paru -S --noconfirm --ask=4 $_PACKAGES
+  )
+
+  _step 'Setting Node.js...' \
+    && _line
+
+  (
+    nvm install --lts \
+      && nvm use --lts \
+      && node -v
+  )
+
+  _step 'Setting Rust...' \
+    && _line
+
+  (
+    rustup default stable \
+      && rustc -V
   )
 
   _step 'Setting virtualization...' \
