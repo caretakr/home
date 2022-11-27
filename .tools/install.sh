@@ -141,6 +141,7 @@ _main() {
       wireguard-tools \
       xbanish \
       xdg-desktop-portal-gtk \
+      xdg-user-dirs \
       xorg-server \
       xorg-xinit \
       xorg-xinput \
@@ -149,7 +150,14 @@ _main() {
       xss-lock \
     "
 
-    paru -S --noconfirm --ask=4 $_PACKAGES
+    paru -S --needed --noconfirm --ask=4 $_PACKAGES
+  )
+
+  _step 'Setting user directories...' \
+    && _line
+
+  (
+    xdg-user-dirs-update
   )
 
   _step 'Setting virtualization...' \
